@@ -20,33 +20,23 @@ class User extends Authenticatable
     protected $fillable = [
         'lastname',
         'firstname',
-        'old',
         'email',
         'password',
-        'gender',
         'job',
         'picture',
-        'like_count',
+        'birthdate',
     ];
 
-    public function likesGiven()
-    {
-        return $this->hasMany(Like::class, 'user_id');
+    public function likes(){
+        return $this->hasMany(Like::class);
     }
 
-    public function likesreceived()
-    {
-        return $this->hasMany(Like::class, 'recipient_id');
+    public function messages(){
+        return $this->hasMany(Message::class);
     }
 
-    public function messagesSend()
-    {
-        return $this->hasMany(Message::class, 'user_id');
-    }
-
-    public function messagesreveived()
-    {
-        return $this->hasMany(Message::class, 'recipient_id');
+    public function hobbies(){
+        return $this->belongsToMany(Hobbie::class);
     }
 
     /**
