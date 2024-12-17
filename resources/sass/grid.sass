@@ -1,0 +1,51 @@
+[class*="grid-"]
+  display: grid
+
+@for $i from 1 through 12
+  .grid-#{$i}
+    grid-template-columns: repeat($i, 1fr)
+
+@include responsive('small')
+  @for $i from 1 through 12
+    .grid-sm-#{$i}
+      grid-template-columns: repeat(#{$i}, 1fr)
+
+@include responsive('medium')
+  @for $i from 1 through 12
+    .grid-md-#{$i}
+      grid-template-columns: repeat(#{$i}, 1fr)
+
+@include responsive('large')
+  @for $i from 1 through 12
+    .grid-lg-#{$i}
+      grid-template-columns: repeat(#{$i}, 1fr)
+
+@include responsive('extra-large')
+  @for $i from 1 through 12
+    .grid-xl-#{$i}
+      grid-template-columns: repeat(#{$i}, 1fr)
+
+
+@for $i from 1 through 12
+  .col-#{$i}
+    grid-column: span #{$i}
+
+@include responsive('small')
+  @for $i from 1 through 12
+    .col-sm-#{$i}
+      grid-column: span #{$i}
+
+@include responsive('medium')
+  @for $i from 1 through 12
+    .col-md-#{$i}
+      grid-column: span #{$i}
+
+@include responsive('large')
+  @for $i from 1 through 12
+    .col-lg-#{$i}
+      grid-column: span #{$i}
+
+@include responsive('extra-large')
+  @for $i from 1 through 12
+    .col-xl-#{$i}
+      grid-column: span #{$i}
