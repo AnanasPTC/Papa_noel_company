@@ -10,8 +10,8 @@ Auth::routes();
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::resource(ProfileController::class)->except(['create', 'store']);
 
+Route::resource('profile',ProfileController::class)->except(['create', 'store']);
 
 Route::get('/search', [SearchController::class, 'index'])->name('search.index');
 Route::post('/search', [SearchController::class, 'findByFilter'])->name('search.filter');

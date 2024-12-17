@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('receiver_id');
             $table->string('sender_id');
+            $table->string('receiver_id');
             $table->timestamps();
         });
     }
