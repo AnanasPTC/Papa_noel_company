@@ -14,7 +14,7 @@
                     <a class="nav-link" href="">{{ __('Mon Profile') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">{{ __('Mes Messages') }}</a>
+                    <a class="nav-link" href="/message">{{ __('Mes Messages') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Mes Recherche</a>
