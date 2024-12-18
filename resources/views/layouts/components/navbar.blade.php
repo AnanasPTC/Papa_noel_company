@@ -11,7 +11,7 @@
             @guest
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="">{{ __('Mon Profile') }}</a>
+                    <a class="nav-link" href="{{ route('profile.index') }}">{{ __('Mon Profile') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">{{ __('Mes Messages') }}</a>

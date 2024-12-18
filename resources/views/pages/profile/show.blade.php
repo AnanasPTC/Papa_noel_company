@@ -14,6 +14,13 @@
                     <li>Prénom: {{ $user->first_name }}</li>
                     <li>Email: {{ $user->email }}</li>
                     <li>Date de naissance: {{ $user->birthdate->format('d-m-Y') }}</li>
+                    <li>Hobbies:
+                        <ul>
+                            @foreach($user->hobbies as $hobby)
+                                <li>{{ $hobby }}</li>
+                            @endforeach
+                        </ul>
+                    </li>
                     <li>Photo: <img src="{{ $user->photo }}" alt="Photo de profil" class="img-fluid"></li>
                 </ul>
                 @if (Auth::id() == $user->id)

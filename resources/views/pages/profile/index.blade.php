@@ -5,7 +5,7 @@
             <div class="form-group">
                 <h1>Bienvenue les lutins!</h1>
                 <p>Vous êtes sur le site officiel des rencontres entre lutins de la Papa Noel Compagny.</p>
-                <h2>Page profile de {{ $user->name }}</h2>
+                <h2>Page profile de {{ $users->name }}</h2>
                 <p>Voici les informations de votre profil:</p>
                 <ul>
                     <li>Nom: {{ $user->name }}</li>
