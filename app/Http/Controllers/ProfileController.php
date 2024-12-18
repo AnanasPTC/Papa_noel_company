@@ -12,16 +12,16 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('profile');
+        return view('profile.index');
     }
 
-    public function show($id): View
+    public function show($id)
     {
         $user = User::findOrFail($id);
         return view('profile.show', compact('user'));
     }
 
-    public function edit($id): View
+    public function edit($id)
     {
         $user = User::findOrFail($id);
         return view('profile.edit', compact('user'));

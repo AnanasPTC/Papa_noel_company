@@ -1,41 +1,41 @@
-@extends ('layouts/app')
-
-@section('title')
-    Réseau Social Laravel - Mon compte
-@endsection
+@extends('layouts.app')
 
 @section('content')
-    <div class="container">
-
-        <h1>Mon compte</h1>
-
-        <h3 class="pb-3">Modifier mes informations </h3>
-
-        <div class="row">
-
-            <form class="col-4 mx-auto" action="{{ route('users.update', $user) }}" method="POST">
-                @csrf
-                @method('PUT')
-
-                <div class="form-group">
-                    <label for="pseudo">Nouveau pseudo</label>
-                    <input required type="text" class="form-control" placeholder="modifier" name="pseudo"
-                        value="{{ $user->pseudo }}" id="pseudo">
-                </div>
-
-                <div class="form-group">
-                    <label for="image">Nouvelle image</label>
-                    <input type="text" class="form-control" placeholder="modifier" name="image"
-                        value="{{ $user->image }}" id="image">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Valider</button>
-            </form>
-            <form action="{{ route('users.destroy', $user) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Supprimer le compte</button>
-            </form> 
+<div class="container">
+    <h1>Modifier le profil</h1>
+    <form method="POST" action="{{ route('profile.update', $user->id) }}" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="lastname">Prénom</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" value="{{ $user->lastname }}" required>
+        </div>
+        <div class="form-group">
+            <label for="birthdate">Date de naissance</label>
+            <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ $user->birthdate->format('Y-m-d') }}" required>
+        </div>
+        <div class="form-group">
+            <label for="img_path">Photo de profil</label>
+            <input type="file" class="form-control" id="img_path" name="img_path">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" class="form-control" id="password" name="password">
+            <small class="form-text text-muted">Laissez vide pour conserver le mot de passe actuel.</small>
+        </div>
+        <div class="form-group">
+            <label for="password_confirmation">Confirmer le mot de passe</label>
+            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+        </div>
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+</div>
 @endsection
