@@ -8,10 +8,10 @@
                 <h2>Page profile de {{ $user->name }}</h2>
                 <p>Voici les informations de votre profil:</p>
                 <ul>
-                    <li>Name: {{ $user->name }}</li>
-                    <li>Lastname: {{ $user->first_name }}</li>
+                    <li>Nom: {{ $user->name }}</li>
+                    <li>Prenom: {{ $user->first_name }}</li>
                     <li>Email: {{ $user->email }}</li>
-                    <li>Birthdate: {{ $user->birthdate->format('d-m-Y') }}</li>
+                    <li>Date de naissance: {{ $user->birthdate->format('d-m-Y') }}</li>
                     <li>Hobbies: {{ $user->hobbies->format('checkbox') }}</li>
                     <li>Photo: <img src="{{ $user->photo }}" alt="Photo de profil" class="img-fluid"></li>
                 </ul>

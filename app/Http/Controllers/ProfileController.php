@@ -33,12 +33,18 @@ class ProfileController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'birthdate' => 'required||date|string|max:255',
+            'image' => 'required|string|max:255,min:255,max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
         ]);
 
         $user->update([
             'name' => $request->name,
+            'lastname' => $request->lastname,
+            'birthdate' => $request->birthdate,
+            'img_path' => $request->img_path,
             'email' => $request->email,
             'password' => $request->filled('password') ? bcrypt($request->password) : $user->password,
         ]);
