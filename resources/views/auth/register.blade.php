@@ -77,7 +77,11 @@
                                         <input type="file" name="picture" id="picture"
                                                placeholder="Ma Photo"
                                                class="form-control">
-
+                                        @error('picture')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -86,6 +90,11 @@
                                                name="birthdate"
                                                placeholder="Traducteur">
                                         <label for="birthdate" class="form-label">Naissance</label>
+                                        @error('birthdate')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
