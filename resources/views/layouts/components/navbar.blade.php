@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-0 px-3">
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm p-0 px-3">
     <a class="navbar-brand fw-bold fs-1 text-primary" href="{{ url('/') }}">
         {{ config('app.name') }}
     </a>

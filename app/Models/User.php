@@ -36,7 +36,7 @@ class User extends Authenticatable
     }
 
     public function hobbies(){
-        return $this->belongsToMany(Hobbie::class);
+        return $this->belongsToMany(Hobby::class);
     }
 
     /**
