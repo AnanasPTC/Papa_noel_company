@@ -49,9 +49,18 @@
                         </div>
 
                         <!-- Date -->
-                        <div class="message-date">
+                        <div class="message-bottom left">
                             <small>Envoyé le : {{ $message->created_at }}</small>
                         </div>
+
+                        <!-- Bouton Supprimer -->
+                        <form action="{{ route('message.destroy', $message->id) }}" method="POST" style="margin-top: 10px;">
+                        @csrf
+                        @method('DELETE')
+                            <button type="submit" class="message-bottom right">
+                                🗑️ Supprimer
+                            </button>
+                        </form>
                     </li>
                 @endforeach
             </ul>
