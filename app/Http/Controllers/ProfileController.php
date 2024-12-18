@@ -34,20 +34,28 @@ class ProfileController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
-            'birthdate' => 'required||date|string|max:255',
-            'image' => 'required|string|max:255,min:255,max:255',
+            'birthdate' => 'required|date',
+            'img_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
         ]);
 
-        $user->update([
+        $userData = [
             'name' => $request->name,
             'lastname' => $request->lastname,
             'birthdate' => $request->birthdate,
-            'img_path' => $request->img_path,
             'email' => $request->email,
-            'password' => $request->filled('password') ? bcrypt($request->password) : $user->password,
-        ]);
+        ];
+
+        if ($request->filled('password')) {
+            $userData['password'] = bcrypt($request->password);
+        }
+
+        if ($request->hasFile('img_path')) {
+            $userData['img_path'] = $request->file('img_path')->store('profile_images');
+        }
+
+        $user->update($userData);
 
         return redirect()->route('profile.index')->with('success', 'Profil mis à jour avec succès');
     }
