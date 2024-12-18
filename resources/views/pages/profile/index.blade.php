@@ -1,24 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>Profil de {{ $user->name }}</h1>
-    <ul>
-        <li>Nom: {{ $user->name }}</li>
-        <li>Prénom: {{ $user->first_name }}</li>
-        <li>Email: {{ $user->email }}</li>
-        <li>Date de naissance: {{ $user->birthdate->format('d-m-Y') }}</li>
-        <li>Hobbies:
-            <ul>
-                @foreach($user->hobbies as $hobby)
-                    <li>{{ $hobby }}</li>
-                @endforeach
-            </ul>
-        </li>
-        <li>Photo: <img src="{{ $user->photo }}" alt="Photo de profil" class="img-fluid"></li>
-    </ul>
-    @if (Auth::id() == $user->id)
-        <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-primary">Modifier mon profil</a>
-    @endif
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Liste des profils</h1>
+            <p>Voici la liste des utilisateurs enregistrés :</p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>job</th>
+                        <th>Status></th>
+                        <th>Date de naissance</th>
+                        <th>Photo</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
+                        <tr>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                <a href="{{ route('profile.show', $user->id) }}" class="btn btn-primary">Consulter</a>
+                                <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-secondary">Modifier</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 @endsection

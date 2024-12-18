@@ -17,7 +17,7 @@
                     <a class="nav-link" href="">{{ __('Mes Messages') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Mes Recherche</a>
+                    <a class="nav-link" href="">Mes Recherches</a>
                 </li>
             @endguest
         </ul>
@@ -25,7 +25,7 @@
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Ce connecter') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
                     </li>
                 @endif
                 @if (Route::has('register'))
@@ -38,9 +38,9 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
                         <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            Ce Deconnecter
+                            onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                            Ce déconnecter
                         </a>
                     </form>
                 </li>
