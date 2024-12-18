@@ -7,17 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     protected $fillable = [
-        'user_id',
-        'recipient_id',
+        'sender_id',
+        'receiver_id',
     ];
 
-    public function sender()
-    {
-        return $this->belongsTo(user::class, 'user_id');
+    public function sender(){
+        return $this->belongsTo(User::class, 'sender_id');
     }
 
-    public function recipient()
-    {
-        return $this->belongsTo(user::class, 'recipient_id');
+    public function receiver(){
+        return $this->belongsTo(User::class, 'receiver_id');
     }
 }
