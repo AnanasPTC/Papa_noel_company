@@ -28,7 +28,7 @@
 
                             <div class="row m-2">
                                 <div class="form-floating p-0">
-                                    <input id="password" type="text"
+                                    <input id="password" type="password"
                                            class="form-control @error('password') is-invalid @enderror"
                                            name="password" value="{{ old('password') }}" required
                                            autocomplete="password" autofocus>

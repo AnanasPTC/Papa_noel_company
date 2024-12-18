@@ -10,9 +10,10 @@ class Hobby extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'type'
     ];
 
     public function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'hobbies_users' , 'hobby_id', 'user_id');
     }
 }
