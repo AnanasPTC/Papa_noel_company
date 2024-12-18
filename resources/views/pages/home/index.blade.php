@@ -8,7 +8,7 @@
                     <source src="/storage/uploads/Fond.mp4" type="video/mp4"/>
                 </video>
             </div>
-            <div class="home_text bg-transparent card col-4 border-0">
+            <div class="home_text bg-transparent card  border-0">
                 <div class="card-body">
                     <h2 class="card-title fw-bold fs-1">Trouvez votre compagnon ideal</h2>
                     <h2 class="card-title fw-bold fs-1 d-flex align-items-center justify-content-end">pour l’atelier du Père Noël !</h2>
