@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('birthdate');
-            $table->string('jobs');
-            $table->string('image_path');
+            $table->string('job');
+            $table->boolean('profile_status')->default(false);
+            $table->string('picture');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
