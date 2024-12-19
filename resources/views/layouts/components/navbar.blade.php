@@ -31,12 +31,20 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
                         @if (isset($unreadNotifications) && $unreadNotifications->isNotEmpty())
                             @foreach ($unreadNotifications as $notification)
-                                <li class="dropdown-item">
-                                    <strong>{{ $notification->sender->firstname }} {{ $notification->sender->lastname }}</strong>
-                                    vous a envoyé un message : 
-                                    "{{ Str::limit($notification->content, 20, '...') }}"
+                                <li class="dropdown-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>{{ $notification->sender->firstname }} {{ $notification->sender->lastname }}</strong>
+                                        vous a envoyé un message : 
+                                        "{{ Str::limit($notification->content, 20, '...') }}"
+                                    </div>
                                 </li>
                             @endforeach
+                            <form action="{{ route('notifications.read') }}" method="POST" class="text-center mt-2">
+                                @csrf
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    ✔️ Tout marquer comme lu
+                                </button>
+                            </form>
                         @else
                             <li class="dropdown-item text-center">Aucune notification</li>
                         @endif

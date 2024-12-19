@@ -24,4 +24,5 @@ Route::post('/message/send', [MessageController::class, 'store'])->name('message
 Route::get('/notifications', [MessageController::class, 'getNotifications'])->name('notifications.get');
 Route::post('/notifications/read', [MessageController::class, 'markAllAsRead'])->name('notifications.read');
 
+Route::post('/notifications/mark-as-read/{id}', [MessageController::class, 'markAsRead'])->name('notifications.markAsRead');
 
