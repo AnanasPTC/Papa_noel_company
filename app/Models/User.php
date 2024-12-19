@@ -3,9 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
+use App\Models\Like;
+use App\Models\Hobby;
+use App\Models\Message;
+use App\Models\Post;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -19,15 +24,22 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'lastname',
-        'firstname',
+        'first_name',
+        'birthdate',
+        'status',
         'email',
         'password',
         'job',
-        'picture',
+        'photo',
+    ];
 
-    protected $dates =
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
         'birthdate',
-
     ];
 
     /**
@@ -46,14 +58,18 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
-    public function hobbies(){
+    /**
+     * Get the user's hobbies.
+     */
+    public function hobbies()
+    {
         return $this->belongsToMany(Hobby::class, 'hobbies_user', 'user_id', 'hobby_id');
     }
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var list<string>
+     * @var array<string>
      */
     protected $hidden = [
         'password',
@@ -61,21 +77,19 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * The attributes that should be cast.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 
     /**
      * Get the user's posts.
      */
-    public function post()
+    public function posts()
     {
     return $this->hasMany(Post::class);
     }
