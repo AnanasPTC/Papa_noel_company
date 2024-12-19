@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('hobbies_user', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('hobby_id');
+            $table->string('user_id')->contrained()->onDelete('cascade');
+            $table->string('hobby_id')->contrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

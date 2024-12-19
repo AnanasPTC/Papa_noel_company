@@ -16,8 +16,7 @@
         </div>
         <div class="form-group">
             <label for="birthdate">Date de naissance</label>
-            <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ $user->birthdate->format('Y-m-d') }}" required>
-        </div>
+            <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ \Carbon\Carbon::parse($user->birthdate)->format('Y-m-d') }}" required> </div>
         <div class="form-group">
             <label for="img_path">Photo de profil</label>
             <input type="file" class="form-control" id="img_path" name="img_path">
@@ -36,6 +35,11 @@
             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
         </div>
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+    <form action="{{ route('users.destroy', $user) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Supprimer le compte</button>
     </form>
 </div>
 @endsection
