@@ -7,7 +7,7 @@
             <div class="cookie_container_leftside">
                 <div class="cookie_container_leftside_image">
                     <div class="cookie_container_leftside_image">
-                        <img class="cookie_container_leftside_image_img" src="/secret/cookie.png" height="100" width="100" alt="">
+                        <div class="cookie_container_leftside_image_img"></div>
                     </div>
                     <div class="cookie_container_leftside_splach">
                         <img class="cookie_container_leftside_splach-big" src="/secret/bigsplach.svg" height="100" width="100" alt="">
