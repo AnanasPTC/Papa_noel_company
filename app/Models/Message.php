@@ -10,6 +10,7 @@ class Message extends Model
         'content',
         'sender_id',
         'receiver_id',
+        'is_read',
     ];
 
     public function sender(){
