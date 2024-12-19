@@ -10,6 +10,7 @@
         <ul class="navbar-nav me-auto">
             @guest
             @else
+
                 <li class="nav-item">
                     <a class="nav-link" href="">{{ __('Mon Profile') }}</a>
                 </li>
@@ -18,6 +19,28 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Mes Recherche</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle position-relative" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        🔔 
+                        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+                        {{ isset($unreadNotifications) ? $unreadNotifications->count() : 0 }}
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                        @if (isset($unreadNotifications) && $unreadNotifications->isNotEmpty())
+                            @foreach ($unreadNotifications as $notification)
+                                <li class="dropdown-item">
+                                    <strong>{{ $notification->sender->firstname }} {{ $notification->sender->lastname }}</strong>
+                                    vous a envoyé un message : 
+                                    "{{ Str::limit($notification->content, 20, '...') }}"
+                                </li>
+                            @endforeach
+                        @else
+                            <li class="dropdown-item text-center">Aucune notification</li>
+                        @endif
+                    </ul>
                 </li>
             @endguest
         </ul>

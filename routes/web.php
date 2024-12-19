@@ -20,3 +20,8 @@ Route::post('/search', [SearchController::class, 'findByFilter'])->name('search.
 Route::resource('message',Messagecontroller::class);
 
 Route::post('/message/send', [MessageController::class, 'store'])->name('message.store');
+
+Route::get('/notifications', [MessageController::class, 'getNotifications'])->name('notifications.get');
+Route::post('/notifications/read', [MessageController::class, 'markAllAsRead'])->name('notifications.read');
+
+
