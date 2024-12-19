@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('birthdate');
+            $table->date('birthdate');
             $table->string('job');
             $table->boolean('profile_status')->default(false);
             $table->string('picture');

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-0 px-3">
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm p-0 px-3">
     <a class="navbar-brand fw-bold fs-1 text-primary" href="{{ url('/') }}">
         {{ config('app.name') }}
     </a>
@@ -18,7 +18,7 @@
                     <a class="nav-link" href="/message">{{ __('Mes Messages') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Mes Recherche</a>
+                    <a class="nav-link" href="{{route('search.index')}}">Mes Recherche</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -56,12 +56,12 @@
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Ce connecter') }}</a>
                     </li>
                 @endif
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('S\'inscrire') }}</a>
                     </li>
                 @endif
             @else

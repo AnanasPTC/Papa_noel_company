@@ -22,7 +22,7 @@
            @include('layouts.components.navbar')
        </header>
 
-        <main class="py-4">
+        <main class="py-4 mt-5 pt-5">
             @yield('content')
         </main>
     </div>
