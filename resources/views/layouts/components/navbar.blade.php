@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-0 px-3">
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm p-0 px-3">
     <a class="navbar-brand fw-bold fs-1 text-primary" href="{{ url('/') }}">
         {{ config('app.name') }}
     </a>
@@ -11,13 +11,13 @@
             @guest
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="">{{ __('Mon Profile') }}</a>
+                    <a class="nav-link" href="{{ route('profile.index') }}">{{ __('Mon Profile') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">{{ __('Mes Messages') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Mes Recherche</a>
+                    <a class="nav-link" href="">Mes Recherches</a>
                 </li>
             @endguest
         </ul>
@@ -25,12 +25,12 @@
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
                     </li>
                 @endif
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('S\'inscrire') }}</a>
                     </li>
                 @endif
             @else
@@ -38,9 +38,9 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
                         <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            Ce Deconnecter
+                            onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                            Ce déconnecter
                         </a>
                     </form>
                 </li>
