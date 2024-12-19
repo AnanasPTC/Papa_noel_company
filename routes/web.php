@@ -29,6 +29,5 @@ Route::delete('/users/{id}', [ProfileController::class, 'destroy'])->name('users
 Route::put('/user/profile', [ProfileController::class, 'updateProfile']);
 Route::patch('/users/{id}', [ProfileController::class, 'updateStatus'])->name('users.updateStatus');
 Route::patch('/users/{id}', [ProfileController::class, 'update'])->name('users');
-Route::get('/users/{id}/edit', [ProfileController::class, 'editProfile'])->name('users.editProfile');
-Route::update('user/profile', [ProfileController::class, 'update'])->name('profile.update');
-
+Route::get('/user/profile', [ProfileController::class, 'profile'])->name('user.profile');
+Route::put('/user/profile', [ProfileController::class, 'update'])->name('user.update');
