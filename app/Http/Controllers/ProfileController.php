@@ -17,7 +17,7 @@ class ProfileController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('profile.show', compact('user'));
+        return view(pages.profile.show', compact('user'));
     }
 
     public function edit($id)
@@ -35,7 +35,7 @@ class ProfileController extends Controller
             'lastname' => 'required|string|max:255',
             'birthdate' => 'required|date',
             'img_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'email' => 'required|string|email|max:255|unique:user,email,' . $user->id,
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
         ]);
 

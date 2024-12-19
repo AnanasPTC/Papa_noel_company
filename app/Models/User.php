@@ -15,7 +15,7 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var list<string>
+     * @var array<string>
      */
     protected $fillable = [
         'lastname',
@@ -24,14 +24,25 @@ class User extends Authenticatable
         'password',
         'job',
         'picture',
+
+    protected $dates =
         'birthdate',
+
     ];
 
-    public function likes(){
+    /**
+     * Get the user's likes.
+     */
+    public function likes()
+    {
         return $this->hasMany(Like::class);
     }
 
-    public function messages(){
+    /**
+     * Get the user's messages.
+     */
+    public function messages()
+    {
         return $this->hasMany(Message::class);
     }
 
@@ -60,5 +71,12 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+
+    /**
+     * Get the user's posts.
+     */
+    public function post()
+    {
+    return $this->hasMany(Post::class);
     }
 }
