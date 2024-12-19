@@ -8,22 +8,22 @@ use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
-        return view('profile.index', compact('user'));
+        $user = User::findOrFail($request->user()->id);
+        return view('pages.profile.index', compact('user'));
     }
 
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view(pages.profile.show', compact('user'));
+        return view('pages.profile.show', compact('user'));
     }
 
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('profile.edit', compact('user'));
+        return view('pages.profile.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
@@ -31,16 +31,17 @@ class ProfileController extends Controller
         $user = User::findOrFail($id);
 
         $request->validate([
-            'name' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'birthdate' => 'required|date',
+            'job' => 'required|string',
             'img_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
         ]);
 
         $userData = [
-            'name' => $request->name,
+            'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'birthdate' => $request->birthdate,
             'email' => $request->email,
@@ -56,7 +57,7 @@ class ProfileController extends Controller
 
         $user->update($userData);
 
-        return redirect()->route('profile.index')->with('success', 'Profil mis à jour avec succès');
+        return redirect()->route('pages.profile.index')->with('success', 'Profil mis à jour avec succès');
     }
 
     public function destroy($id)

@@ -10,7 +10,7 @@
                 <li>Nom : {{ $user->name }}</li>
                 <li>Prénom : {{ $user->first_name }}</li>
                 <li>Email : {{ $user->email }}</li>
-                <li>Date de naissance : {{ $user->birthdate->format('d-m-Y') }}</li>
+                <li>Date de naissance : {{ \Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</li>
                 <li>Hobbies :
                     <ul>
                         @foreach($user->hobbies as $hobby)
