@@ -9,6 +9,14 @@
                 @csrf
                 @method('GET')
                 <div class="d-flex justify-content-end align-items-center">
+                    <div class="form-floating">
+                        <select class="form-select" name="filter" aria-label="Default select example">
+                            <option value=" " selected>Trier par</option>
+                            <option value="age_asc">Age croissants</option>
+                            <option value="age_desc">Age décroissants</option>
+                            <option value="created_asc">Plus récents</option>
+                        </select>
+                    </div>
                     <span class="mx-2">De</span>
                     <div class="form-floating col-3">
                         <input id="min_age" type="number" class="form-control" name="min_age" @isset($min_age) value="{{ $min_age }}" @endisset
