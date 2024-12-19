@@ -26,7 +26,16 @@
                 </div>
             </div>
         @else
-
+            <div class="container">
+                <div class="row my-5">
+                    <h2>Les Derniers</h2>
+                    @include('pages.profile.components.browser', ['profiles' => $lastProfiles])
+                </div>
+                <div class="row my-5">
+                    <h2>Les plus appréciés</h2>
+                    @include('pages.profile.components.browser', ['profiles' => $lastProfiles])
+                </div>
+            </div>
         @endguest
     </div>
 @endsection

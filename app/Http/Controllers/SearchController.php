@@ -14,7 +14,6 @@ class SearchController extends Controller
 {
     public function index(Request $request): View
     {
-
         $profilesDB = User::where('profile_status', 1);
 
         if (!empty($request->hobby)) {
