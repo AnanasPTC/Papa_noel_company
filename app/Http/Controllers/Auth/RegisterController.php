@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 include(app_path() . '\Utils\computeImage.php');
 
 use App\Http\Controllers\Controller;
+use App\Models\Hobby;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -73,7 +74,7 @@ class RegisterController extends Controller
         $picture_filename = computeFilename($data['picture']);
         $data['picture']->storeAs('uploads', $picture_filename);
 
-        return User::create([
+        $user = User::create([
             'lastname' => $data['lastname'],
             'firstname' => $data['firstname'],
             'job' => $data['job'],
@@ -82,5 +83,19 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        if($data['hobbies']){
+            foreach ($data['hobbies'] as $hobby){
+                $user->hobbies()->attach($hobby);
+            }
+        }
+
+        return $user;
+    }
+
+    protected function showRegistrationForm()
+    {
+        $hobbies = hobby::all();
+        return view('auth.register', compact('hobbies'));
     }
 }

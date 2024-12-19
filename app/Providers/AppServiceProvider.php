@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -24,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
+        Paginator::useBootstrap();
+
         View::composer('*', function ($view) {
             if (auth()->check()) {
                 $userId = auth()->id();
@@ -38,5 +41,6 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('unreadNotifications', $unreadNotifications);
             }
         });
+        
     }
 }
