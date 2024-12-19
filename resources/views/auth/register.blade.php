@@ -47,9 +47,9 @@
                                     <div class="form-floating">
                                         <select name="hobby_id" id="hobby_id" class="form-select">
                                             <option value=""></option>
-                                            {{--                                @foreach($hobbies as $hobby)--}}
-                                            <option value="{{--{{ $hobby->id }}--}}">{{--{{ $hobby->name }}--}}</option>
-                                            {{--                                @endforeach--}}
+                                            @foreach($hobbies as $hobby)
+                                                <option value="{{ $hobby->id }}">{{ $hobby->name }}</option>
+                                            @endforeach
                                         </select>
                                         <label for="category_id">Hobby(s)</label>
                                     </div>
@@ -72,7 +72,6 @@
 
                             <div class="row mb-3">
                                 <div class="col-6">
-                                    <div class="form-group col-5 p-0 ">
                                         <label for="front_cover">Ma photo</label>
                                         <input type="file" name="picture" id="picture"
                                                placeholder="Ma Photo"
@@ -82,7 +81,6 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
-                                    </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-floating my-2">

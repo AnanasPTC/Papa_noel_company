@@ -17,7 +17,7 @@
                     <a class="nav-link" href="">{{ __('Mes Messages') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Mes Recherche</a>
+                    <a class="nav-link" href="{{route('search.index')}}">Mes Recherche</a>
                 </li>
             @endguest
         </ul>

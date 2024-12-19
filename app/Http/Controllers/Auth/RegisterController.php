@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 include(app_path() . '\Utils\computeImage.php');
 
 use App\Http\Controllers\Controller;
+use App\Models\Hobby;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -82,5 +83,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    protected function showRegistrationForm()
+    {
+        $hobbies = hobby::all();
+        return view('auth.register', compact('hobbies'));
     }
 }
