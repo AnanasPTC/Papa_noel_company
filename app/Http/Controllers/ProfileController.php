@@ -37,7 +37,7 @@ class ProfileController extends Controller
             'lastname' => 'required|string|max:255',
             'birthdate' => 'required|date',
             'img_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'email' => 'required|string|email|max:255|unique:user,email,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
         ]);
 
