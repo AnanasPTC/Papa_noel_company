@@ -17,17 +17,15 @@
                             <option value="created_asc">Plus récents</option>
                         </select>
                     </div>
-                    <span class="mx-2">De</span>
                     <div class="form-floating col-3">
                         <input id="min_age" type="number" class="form-control" name="min_age" @isset($min_age) value="{{ $min_age }}" @endisset
                         autocomplete="age" >
-                        <label for="min_age">Age</label>
+                        <label for="min_age">De Age</label>
                     </div>
-                    <span class="mx-2">A</span>
                     <div class="form-floating col-3">
                         <input id="max_age" type="number" class="form-control" name="max_age" @isset($max_age) value="{{ $max_age }}" @endisset
                         autocomplete="max_age" >
-                        <label for="max_age">Age</label>
+                        <label for="max_age">A Age</label>
                     </div>
                 </div>
                 <div>
