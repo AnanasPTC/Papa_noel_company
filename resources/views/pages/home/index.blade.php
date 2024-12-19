@@ -5,7 +5,7 @@
         @guest
             <div class="home_background p-0">
                 <video class="home_background_video" loop="true" muted autoplay>
-                    <source src="/storage/uploads/Fond.mp4" type="video/mp4"/>
+                    <source src="Fond.mp4" type="video/mp4"/>
                 </video>
             </div>
             <div class="home_text bg-transparent card  border-0">
