@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\View;
-use Illuminate\Http\RedirectResponse;
 
 class ProfileController extends Controller
 {
     public function index()
     {
-        $users = user::all();
-        return view('profile.index', compact('profile'));
+        $users = User::all();
+        return view('profile.index', compact('user'));
     }
 
     public function show($id)
@@ -28,7 +26,7 @@ class ProfileController extends Controller
         return view('profile.edit', compact('user'));
     }
 
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
 
@@ -61,7 +59,7 @@ class ProfileController extends Controller
         return redirect()->route('profile.index')->with('success', 'Profil mis à jour avec succès');
     }
 
-    public function destroy($id): RedirectResponse
+    public function destroy($id)
     {
         User::destroy($id);
         return redirect()->route('home');

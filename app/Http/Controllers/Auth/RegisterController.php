@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'job' => ['required', 'string', 'max:255'],
             'birthdate' => ['required'],
             'picture' => ['required', 'file', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:user'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }

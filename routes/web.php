@@ -25,4 +25,3 @@ Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile
 Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-
