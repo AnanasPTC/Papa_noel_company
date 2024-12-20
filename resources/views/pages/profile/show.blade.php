@@ -21,7 +21,7 @@
                     </div>
                     <div class="mt-2">
                        <p class="fw-bold">Description:</p>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto, dolor doloremque excepturi pariatur provident sunt unde voluptates. Consequatur corporis eius eum nesciunt, rem repellendus vitae voluptates. Nam, nostrum numquam.</p>
+                       <p>Rejoignez dès maintenant Lutins & Compagnie et commencez à écrire votre histoire de Noël avec le binôme parfait !.</p>
                     </div>
                     <div class="d-flex justify-content-center align-items-center w-100 mt-5">
                         <a class="d-flex justify-content-center align-items-center text-secondary fs-1 coeur" href=""><i class="bi bi-heart"></i></a>
