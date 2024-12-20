@@ -10,14 +10,49 @@
         <ul class="navbar-nav me-auto">
             @guest
             @else
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('profile.index') }}">{{ __('Mon Profile') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">{{ __('Mes Messages') }}</a>
+                    <a class="nav-link" href="/message">{{ __('Mes Messages') }}</a>
                 </li>
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link" href="">Mes Recherches</a>
+=======
+                    <a class="nav-link" href="{{route('search.index')}}">Mes Recherche</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle position-relative" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        🔔 
+                        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+                        {{ isset($unreadNotifications) ? $unreadNotifications->count() : 0 }}
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                        @if (isset($unreadNotifications) && $unreadNotifications->isNotEmpty())
+                            @foreach ($unreadNotifications as $notification)
+                                <li class="dropdown-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>{{ $notification->sender->firstname }} {{ $notification->sender->lastname }}</strong>
+                                        vous a envoyé un message : 
+                                        "{{ Str::limit($notification->content, 20, '...') }}"
+                                    </div>
+                                </li>
+                            @endforeach
+                            <form action="{{ route('notifications.read') }}" method="POST" class="text-center mt-2">
+                                @csrf
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    ✔️ Tout marquer comme lu
+                                </button>
+                            </form>
+                        @else
+                            <li class="dropdown-item text-center">Aucune notification</li>
+                        @endif
+                    </ul>
+>>>>>>> 8cfd7bcb1a0bcd146d96facb101e80e6dde7aabe
                 </li>
             @endguest
         </ul>
