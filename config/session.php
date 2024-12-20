@@ -13,7 +13,7 @@ return [
     | incoming requests. Laravel supports a variety of storage options to
     | persist session data. Database storage is a great default choice.
     |
-    | Supported: "file", "cookie", "database", "apc",
+    | Supported: "file", "cookie.png", "database", "apc",
     |            "memcached", "redis", "dynamodb", "array"
     |
     */
@@ -121,13 +121,13 @@ return [
     | Session Cookie Name
     |--------------------------------------------------------------------------
     |
-    | Here you may change the name of the session cookie that is created by
+    | Here you may change the name of the session cookie.png that is created by
     | the framework. Typically, you should not need to change this value
     | since doing so does not grant a meaningful security improvement.
     |
     */
 
-    'cookie' => env(
+    'cookie.png' => env(
         'SESSION_COOKIE',
         Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
     ),
@@ -137,7 +137,7 @@ return [
     | Session Cookie Path
     |--------------------------------------------------------------------------
     |
-    | The session cookie path determines the path for which the cookie will
+    | The session cookie.png path determines the path for which the cookie.png will
     | be regarded as available. Typically, this will be the root path of
     | your application, but you're free to change this when necessary.
     |
@@ -150,8 +150,8 @@ return [
     | Session Cookie Domain
     |--------------------------------------------------------------------------
     |
-    | This value determines the domain and subdomains the session cookie is
-    | available to. By default, the cookie will be available to the root
+    | This value determines the domain and subdomains the session cookie.png is
+    | available to. By default, the cookie.png will be available to the root
     | domain and all subdomains. Typically, this shouldn't be changed.
     |
     */
@@ -165,7 +165,7 @@ return [
     |
     | By setting this option to true, session cookies will only be sent back
     | to the server if the browser has a HTTPS connection. This will keep
-    | the cookie from being sent to you when it can't be done securely.
+    | the cookie.png from being sent to you when it can't be done securely.
     |
     */
 
@@ -177,7 +177,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Setting this value to true will prevent JavaScript from accessing the
-    | value of the cookie and the cookie will only be accessible through
+    | value of the cookie.png and the cookie.png will only be accessible through
     | the HTTP protocol. It's unlikely you should disable this option.
     |
     */
@@ -206,7 +206,7 @@ return [
     | Partitioned Cookies
     |--------------------------------------------------------------------------
     |
-    | Setting this value to true will tie the cookie to the top-level site for
+    | Setting this value to true will tie the cookie.png to the top-level site for
     | a cross-site context. Partitioned cookies are accepted by the browser
     | when flagged "secure" and the Same-Site attribute is set to "none".
     |

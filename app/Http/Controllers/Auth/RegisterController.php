@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-include(app_path() . '\Utils\computeImage.php');
+require_once(app_path() . '\Utils\computeImage.php');
 
 use App\Http\Controllers\Controller;
 use App\Models\Hobby;
@@ -70,6 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        logger('Données pour la création de l\'utilisateur:', $data);
 
         $picture_filename = computeFilename($data['picture']);
         $data['picture']->storeAs('uploads', $picture_filename);

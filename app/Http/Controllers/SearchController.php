@@ -11,6 +11,13 @@ use Illuminate\View\View;
 
 class SearchController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Request $request): View
     {
         $profilesDB = User::where('profile_status', 1);
