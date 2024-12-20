@@ -10,13 +10,7 @@ use App\Models\Message;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
-    }
+
 
     /**
      * Bootstrap any application services.
@@ -24,7 +18,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
-        Paginator::useBootstrap();
 
         View::composer('*', function ($view) {
             if (auth()->check()) {

@@ -3,15 +3,7 @@
 @section('content')
 
 @vite('resources/css/message.css')
-
-
-<!-- Animation de neige -->
-<div id="snowflakes">
-    <div class="snowflake">❄️</div>
-    <div class="snowflake">❄️</div>
-    <div class="snowflake">❄️</div>
-</div>
-
+@vite('resources/js/animation.js')
 
 <!-- Titre -->
 <h1 class="main-title">
@@ -73,7 +65,7 @@
     <div class="send-form-container">
         <form action="{{ route('message.store') }}" method="POST" class="send-form">
             @csrf
-            <h2>🎄 Envoyer un message 🎄</h2>
+            <h2 id=triggerAnimation>🎄 Envoyer un message 🎄</h2>
             <div>
                 <label for="receiver_id">Destinataire</label>
                 <select name="receiver_id" id="receiver_id" required>
@@ -91,4 +83,6 @@
         </form>
     </div>
 </div>
+
+
 @endsection

@@ -44,7 +44,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-primary w-100">
-                                        {{ __('Ce connecter') }}
+                                        {{ __('Se connecter') }}
                                     </button>
                                 </div>
                             </div>

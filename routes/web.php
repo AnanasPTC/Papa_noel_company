@@ -1,18 +1,18 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ProfileController;
 
 Auth::routes();
 
-use App\Http\Controllers\ProfileController;
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('profile',ProfileController::class)->except(['create', 'store']);
+Route::resource('profile', ProfileController::class)->except(['create', 'store']);
 
 Route::get('/search', [SearchController::class, 'index'])->name('search.index');
 

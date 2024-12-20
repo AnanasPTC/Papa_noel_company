@@ -67,19 +67,6 @@ class MessageController extends Controller
         return redirect()->route('message.index')->with('success', 'Message supprimé avec succès.');
     }
 
-    public function getNotifications()
-    {
-        $userId = auth()->id();
-
-        $notifications = Message::where('receiver_id', $userId)
-            ->where('is_read', false)
-            ->with('sender')
-            ->orderBy('created_at', 'desc')
-            ->get();
-
-        return response()->json($notifications);
-    }
-
     public function markAllAsRead()
     {
         $userId = auth()->id();

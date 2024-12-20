@@ -10,11 +10,13 @@
                 <h2>Page profile de {{ $user->name }}</h2>
                 <p>Voici les informations de votre profil:</p>
                 <ul>
-                    <li>Nom: {{ $user->name }}</li>
-                    <li>Prénom: {{ $user->first_name }}</li>
+                    <li>Photo: <img src="{{ $user->picture }}" alt="Photo de profil" class="img-fluid"></li>
+                    <li>Nom: {{ $user->lastname }}</li>
+                    <li>Prénom: {{ $user->firstname }}</li>
+                    <li>Hobbies: {{ $user->hobbies }}</li>
+                    <li>Job: {{ $user->job }}</li>
                     <li>Email: {{ $user->email }}</li>
-                    <li>Date de naissance: {{ $user->birthdate->format('d-m-Y') }}</li>
-                    <li>Photo: <img src="{{ $user->photo }}" alt="Photo de profil" class="img-fluid"></li>
+                    <li>Date de naissance : {{ \Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</li>
                 </ul>
                 @if (Auth::id() == $user->id)
                     <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-primary">Modifier mon profil</a>

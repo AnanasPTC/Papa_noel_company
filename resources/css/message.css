@@ -7,33 +7,6 @@ body {
     padding: 0;
 }
 
-#snowflakes {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-.snowflake {
-    position: absolute;
-    top: -10px;
-    font-size: 1.5rem;
-    color: white;
-    animation: snow 10s linear infinite;
-}
-
-.snowflake:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
-.snowflake:nth-child(2) { left: 50%; animation-duration: 10s; animation-delay: 2s; }
-.snowflake:nth-child(3) { left: 80%; animation-duration: 12s; animation-delay: 4s; }
-
-@keyframes snow {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(100vh); }
-}
-
 .main-container {
     display: flex;
     flex-direction: row;

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@vite('resources/css/flocon.css')
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +18,13 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+    <!-- Animation de neige -->
+    <div id="snowflakes">
+        <div class="snowflake">❄️</div>
+        <div class="snowflake">❄️</div>
+        <div class="snowflake">❄️</div>
+    </div>
+
     <div id="app">
        <header>
            @include('layouts.components.navbar')
