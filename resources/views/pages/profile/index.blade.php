@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container py-5">
-    <div class="row">
+    <div class="row justify content-center">
         <div class="col-md-12">
-            <h1>Profil de {{ $user->name }}</h1>
+            <h1>Profil de {{ $user->firstname }}</h1>
             <p>Voici les informations de votre profil :</p>
             <ul>
-                <li>Nom : {{ $user->name }}</li>
-                <li>Prénom : {{ $user->first_name }}</li>
+                <li>Nom : {{ $user->lastname }}</li>
+                <li>Prénom : {{ $user->firstname }}</li>
                 <li>Email : {{ $user->email }}</li>
                 <li>Date de naissance : {{ \Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</li>
                 <li>Hobbies :

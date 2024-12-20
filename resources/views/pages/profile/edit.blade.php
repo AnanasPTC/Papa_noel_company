@@ -59,8 +59,7 @@
                                                            type="checkbox"
                                                            value="{{ $hobby->id }}"
                                                            name="hobbies[]"
-                                                           @if($user->hobbies->contains($hobby->id)) checked @endif
-                                                    >
+                                                           @if($user->hobbies->contains($hobby->id)) checked @endif>
                                                     <label class="form-check-label" for="flexCheck{{ $hobby->id }}">
                                                         {{ $hobby->name }}
                                                     </label>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-5">
-    <div class="row">
+    <div class="row justify content-center">
         <div class="col-md-12">
             <div class="form-group">
                 <h1>Bienvenue les lutins!</h1>
