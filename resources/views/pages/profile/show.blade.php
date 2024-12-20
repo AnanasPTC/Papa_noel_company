@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container pt-5">
+    <div class="container pt-5 mt-5">
         <div class="row">
             <div class="col-6 d-flex justify-content-end">
                 <div class="d-flex justify-content-center align-items-center">
@@ -10,8 +10,8 @@
 
             </div>
             <div class="col-6 d-flex justify-content-start align-items-start">
-                <div class="d-flex flex-column justify-content-start align-items-start p-4 ">
-                    <h1>{{$user->firstname}} {{$user->lastname}}, {{\Carbon\Carbon::parse($user->birthdate)->diff(\Carbon\Carbon::now())->format('%y')}}
+                <div class="d-flex flex-column justify-content-start align-items-start pt-5 mt-5">
+                    <h1 class="text-primary">{{$user->firstname}} {{$user->lastname}}, {{\Carbon\Carbon::parse($user->birthdate)->diff(\Carbon\Carbon::now())->format('%y')}}
                         ans</h1>
                     <p class="mt-2">Membre depuis le {{\Carbon\Carbon::parse($user->created_at)->format('d-m-Y')}}</p>
                     <div class="">{{$user->firstname}} est fan de
