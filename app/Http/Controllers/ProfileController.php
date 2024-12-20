@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Request $request)
     {
         $user = User::findOrFail($request->user()->id);

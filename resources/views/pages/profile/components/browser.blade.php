@@ -1,6 +1,6 @@
 <div class="row d-flex justify-content-center align-items-center gap-2">
     @foreach($profiles as $profile)
-        <a class="col-2 card text-bg-dark p-0 border-0" href="{{--{{route('profile.show', $profile->id)}--}}}">
+        <a class="col-2 card text-bg-dark p-0 border-0" href="{{route('profile.show', $profile->id)}}">
             <img src="{{$profile->picture}}" class="card-img" alt="...">
             <div class="card-img-overlay p">
                 <h5 class="card-title">{{$profile->lastname}} {{$profile->firstname}}
