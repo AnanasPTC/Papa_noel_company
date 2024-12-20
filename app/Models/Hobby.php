@@ -8,12 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Hobby extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'type'
-    ];
 
-    public function user(){
-        return $this->belongsToMany(User::class, 'hobbies_user' , 'hobby_id', 'user_id');
+    protected $fillable = ['name'];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'hobbies_user', 'hobby_id', 'user_id');
     }
 }
