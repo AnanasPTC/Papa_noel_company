@@ -28,7 +28,7 @@
 
                             <div class="row m-2">
                                 <div class="form-floating p-0">
-                                    <input id="password" type="text"
+                                    <input id="password" type="password"
                                            class="form-control @error('password') is-invalid @enderror"
                                            name="password" value="{{ old('password') }}" required
                                            autocomplete="password" autofocus>
@@ -44,7 +44,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-primary w-100">
-                                        {{ __('Ce connecter') }}
+                                        {{ __('Se connecter') }}
                                     </button>
                                 </div>
                             </div>

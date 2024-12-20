@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -42,19 +52,30 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <div class="form-floating">
-                                        <select name="hobby_id" id="hobby_id" class="form-select">
-                                            <option value=""></option>
-                                            {{--                                @foreach($hobbies as $hobby)--}}
-                                            <option value="{{--{{ $hobby->id }}--}}">{{--{{ $hobby->name }}--}}</option>
-                                            {{--                                @endforeach--}}
-                                        </select>
-                                        <label for="category_id">Hobby(s)</label>
-                                    </div>
-                                </div>
-                                <div class="col-6">
+                            <div class="row mb-3 d-flex align-items-center justify-content-center">
+                                <ul class="list-group col-8 p-0">
+                                    <li class="list-group-item "  data-bs-toggle="collapse" href="#collapseHobbies"
+                                        role="button" aria-expanded="false"
+                                        aria-controls="collapseHobbies">
+                                        Choisi tes hobbies
+                                    </li>
+                                    <li class="list-group-item  collapse"  id="collapseHobbies">
+                                        <div class="row p-3">
+                                            @foreach($hobbies as $hobby)
+                                                <div class="form-check col-6">
+                                                    <input class="form-check-input" id="flexCheck{{ $hobby->id }}" type="checkbox" value="{{ $hobby->id }}" name="hobbies[]">
+                                                    <label class="form-check-label" for="flexCheck{{ $hobby->id }}">
+                                                        {{ $hobby->name }}
+                                                    </label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="row mb-3 d-flex justify-content-center align-items-center">
+                                <div class="col-8">
                                     <div class="form-floating">
                                         <input id="job" type="text"
                                                class="form-control @error('job') is-invalid @enderror"
@@ -69,20 +90,17 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <div class="col-6">
-                                    <div class="form-group col-5 p-0 ">
-                                        <label for="front_cover">Ma photo</label>
-                                        <input type="file" name="picture" id="picture"
-                                               placeholder="Ma Photo"
-                                               class="form-control">
-                                        @error('picture')
-                                        <span class="invalid-feedback" role="alert">
+                                    <label for="front_cover">Ma photo</label>
+                                    <input type="file" name="picture" id="picture"
+                                           placeholder="Ma Photo"
+                                           class="form-control">
+                                    @error('picture')
+                                    <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                        @enderror
-                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="col-6">
                                     <div class="form-floating my-2">
@@ -98,6 +116,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="row mb-3">
                                 <div class="col-12">
                                     <div class="form-floating">
