@@ -15,7 +15,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('profile',ProfileController::class)->except(['create', 'store']);
 
 Route::get('/search', [SearchController::class, 'index'])->name('search.index');
-Route::post('/search', [SearchController::class, 'findByFilter'])->name('search.filter');
 
 Route::resource('message',Messagecontroller::class);
 
