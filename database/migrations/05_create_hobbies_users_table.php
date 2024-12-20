@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hobbies_user', function (Blueprint $table) {
+        Schema::create('hobbies_users', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->contrained()->onDelete('cascade');
             $table->string('hobby_id')->contrained()->onDelete('cascade');
