@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-include(app_path() . '\Utils\computeImage.php');
+require_once(app_path() . '\Utils\computeImage.php');
 
 use App\Models\Hobby;
 use App\Models\User;
