@@ -7,6 +7,7 @@ use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LikeController;
 
 Auth::routes();
 
@@ -27,3 +28,4 @@ Route::post('/notifications/read', [MessageController::class, 'markAllAsRead'])-
 
 Route::post('/notifications/mark-as-read/{id}', [MessageController::class, 'markAsRead'])->name('notifications.markAsRead');
 
+Route::post('/like', [LikeController::class, 'toggle'])->name('likes.toggle');

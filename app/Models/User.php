@@ -39,4 +39,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function isLikedByAuthUser()
+    {
+        return $this->hasMany(Like::class, 'receiver_id')
+            ->where('sender_id', auth()->id())
+            ->exists();
+    }
 }

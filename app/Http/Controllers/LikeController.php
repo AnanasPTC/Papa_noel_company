@@ -8,40 +8,29 @@ use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
-    public function store(Request $request)
-    {
-        $request->validate([
-            'receiver_id' => 'required|exists:users,id',
-        ]);
+    public function toggle(Request $request)
+{
+    $request->validate([
+        'receiver_id' => 'required|exists:users,id',
+    ]);
 
-        $userId = Auth::id();
+    $userId = Auth::id();
+    $receiverId = $request->receiver_id;
 
-        $existingLike = Like::where('sender_id', $userId)
-            ->where('receiver_id', $request->receiver_id)
-            ->first();
+    $existingLike = Like::where('sender_id', $userId)
+        ->where('receiver_id', $receiverId)
+        ->first();
 
-        if ($existingLike) {
-            return redirect()->back()->with('info', 'Vous avez déjà aimé cet utilisateur.');
-        }
-
+    if ($existingLike) {
+        $existingLike->delete();
+        return response()->json(['liked' => false], 200);
+    } else {
         Like::create([
             'sender_id' => $userId,
-            'receiver_id' => $request->receiver_id,
+            'receiver_id' => $receiverId,
         ]);
-
-        return redirect()->back()->with('success', 'Utilisateur aimé avec succès !');
+        return response()->json(['liked' => true], 200);
     }
+}
 
-    public function destroy($id)
-    {
-        $like = Like::findOrFail($id);
-
-        if ($like->sender_id !== Auth::id()) {
-            return redirect()->back()->with('error', 'Action non autorisée.');
-        }
-
-        $like->delete();
-
-        return redirect()->back()->with('success', 'Like supprimé avec succès.');
-    }
 }

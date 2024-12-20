@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/message.css',
                 'resources/js/animation.js',
+                'resources/js/like.js',
             ],
             refresh: true,
         }),
