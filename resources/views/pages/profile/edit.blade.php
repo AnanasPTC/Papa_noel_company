@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header fs-4">Près à rejoindre les lutins</div>
+                    <div class="card-header fs-4">Change ton Profile</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('profile.update', $user->id) }}" enctype="multipart/form-data">
