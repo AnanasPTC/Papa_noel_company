@@ -12,6 +12,8 @@
                 <ul>
                     <li>Nom: {{ $user->lastname }}</li>
                     <li>Prénom: {{ $user->firstname }}</li>
+                    <li>Hobbies: {{ $user->hobbies }}</li>
+                    <li>Job: {{ $user->job }}</li>
                     <li>Email: {{ $user->email }}</li>
                     <li>Date de naissance: {{ $user->birthdate->format('d-m-Y') }}</li>
                     <li>Photo: <img src="{{ $user->picture }}" alt="Photo de profil" class="img-fluid"></li>

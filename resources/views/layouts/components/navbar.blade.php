@@ -18,15 +18,12 @@
                     <a class="nav-link" href="/message">{{ __('Mes Messages') }}</a>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD
-                    <a class="nav-link" href="">Mes Recherches</a>
-=======
                     <a class="nav-link" href="{{route('search.index')}}">Mes Recherche</a>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle position-relative" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        🔔 
+                        🔔
                         <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">
                         {{ isset($unreadNotifications) ? $unreadNotifications->count() : 0 }}
                         </span>
@@ -37,7 +34,7 @@
                                 <li class="dropdown-item d-flex justify-content-between align-items-center">
                                     <div>
                                         <strong>{{ $notification->sender->firstname }} {{ $notification->sender->lastname }}</strong>
-                                        vous a envoyé un message : 
+                                        vous a envoyé un message :
                                         "{{ Str::limit($notification->content, 20, '...') }}"
                                     </div>
                                 </li>
@@ -52,7 +49,6 @@
                             <li class="dropdown-item text-center">Aucune notification</li>
                         @endif
                     </ul>
->>>>>>> 8cfd7bcb1a0bcd146d96facb101e80e6dde7aabe
                 </li>
             @endguest
         </ul>
