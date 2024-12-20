@@ -9,7 +9,6 @@ let usinePrice = 1000
 
 let globalInterval
 
-
 let cursorWinPerSeconde = 0.1
 let rollerWinPerSeconde = 0.5
 let mamieWinPerSeconde = 5
@@ -110,6 +109,7 @@ rollerBtn.addEventListener('click', () => {
         }
     }
 })
+
 //
 // mamieBtn.addEventListener('click', () => {
 //     if (cookies >= mamiePrice && !mamieBtn.hasAttribute('disabled')){
@@ -153,8 +153,6 @@ function setGlobalInterval(perSeconde, numberOfItems) {
     clearInterval(globalInterval)
     globalInterval = setInterval(() =>{
         cookies+= winPerSecond
-        console.log(cookies)
-        console.log(winPerSecond)
         updateCookies()
     },1000)
 }
