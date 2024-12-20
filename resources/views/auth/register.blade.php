@@ -106,25 +106,8 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
-                            <div class="col-6">
-                                <div class="form-checkbox-list-group">
-                                    <div class="form list-item" id="form-checkbox">
-                                        <label for="status">Statut</label>
-                                        <div class="choices" data-choices='[
-                                            { "value": "1", "label": "Actif", "type": "true" },
-                                            { "value": "2", "label": "Inactif", "type": "false" }
-                                        ]'>
-                                            <input type="checkbox" id="status_active" name="status[]" value="1"> <label for="status_active">Actif</label>
-                                            <input type="checkbox" id="status_inactive" name="status[]" value="2"> <label for="status_inactive">Inactif</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-=======
 
 
->>>>>>> 8cfd7bcb1a0bcd146d96facb101e80e6dde7aabe
                             <div class="row mb-3">
                                 <div class="col-12">
                                     <div class="form-floating">
