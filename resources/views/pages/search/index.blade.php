@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row d-flex justify-content-between mb-4 mx-4">
-            <h1 class="col-6 p-0">Trouve le Lutin de tes réves</h1>
+            <h1 class="col-6 p-0">Trouve le Lutin de tes rêves</h1>
             <form class="col-6 d-flex justify-content-center gap-2 p-0 " method="GET"
                   action="{{route('search.index')}}">
                 @csrf
