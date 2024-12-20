@@ -5,7 +5,7 @@
         @guest
             <div class="home_background p-0">
                 <video class="home_background_video" loop="true" muted autoplay>
-                    <source src="/storage/uploads/Fond.mp4" type="video/mp4"/>
+                    <source src="Fond.mp4" type="video/mp4"/>
                 </video>
             </div>
             <div class="home_text bg-transparent card  border-0">
@@ -26,7 +26,16 @@
                 </div>
             </div>
         @else
-
+            <div class="container">
+                <div class="row my-5">
+                    <h2>Les Derniers</h2>
+                    @include('pages.profile.components.browser', ['profiles' => $lastProfiles])
+                </div>
+                <div class="row my-5">
+                    <h2>Les plus appréciés</h2>
+                    @include('pages.profile.components.browser', ['profiles' => $lastProfiles])
+                </div>
+            </div>
         @endguest
     </div>
 @endsection
