@@ -1,28 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <h1>Bienvenue les lutins!</h1>
-                <p>Vous êtes sur le site officiel des rencontres entre lutins de la Papa Noel Compagny.</p>
-                <h2>Page profile de {{ $user->name }}</h2>
-                <p>Voici les informations de votre profil:</p>
-                <ul>
-                    <li>Photo: <img src="{{ $user->picture }}" alt="Photo de profil" class="img-fluid"></li>
-                    <li>Nom: {{ $user->lastname }}</li>
-                    <li>Prénom: {{ $user->firstname }}</li>
-                    <li>Hobbies: {{ $user->hobbies }}</li>
-                    <li>Job: {{ $user->job }}</li>
-                    <li>Email: {{ $user->email }}</li>
-                    <li>Date de naissance : {{ \Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</li>
-                </ul>
-                @if (Auth::id() == $user->id)
-                    <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-primary">Modifier mon profil</a>
-                @endif
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-6 d-flex justify-content-end">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="{{$user->picture}}" height="500" width="500" alt="">
+                </div>
+
+            </div>
+            <div class="col-6 d-flex justify-content-start align-items-start">
+                <div class="d-flex flex-column justify-content-start align-items-start p-4 ">
+                    <h1>{{$user->firstname}} {{$user->lastname}}, {{\Carbon\Carbon::parse($user->birthdate)->diff(\Carbon\Carbon::now())->format('%y')}}
+                        ans</h1>
+                    <p class="mt-2">Membre depuis le {{\Carbon\Carbon::parse($user->created_at)->format('d-m-Y')}}</p>
+                    <div class="">{{$user->firstname}} est fan de
+                        @foreach($user->hobbies as $hobby)
+                            <span class="badge text-bg-secondary">{{$hobby->name}}</span>
+                        @endforeach
+                    </div>
+                    <div class="mt-2">
+                       <p class="fw-bold">Description:</p>
+                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto, dolor doloremque excepturi pariatur provident sunt unde voluptates. Consequatur corporis eius eum nesciunt, rem repellendus vitae voluptates. Nam, nostrum numquam.</p>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center w-100 mt-5">
+                        <a class="d-flex justify-content-center align-items-center text-secondary fs-1 coeur" href=""><i class="bi bi-heart"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
