@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
+        Paginator::useBootstrap();
 
         View::composer('*', function ($view) {
             if (auth()->check()) {
