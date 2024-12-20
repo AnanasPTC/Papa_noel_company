@@ -19,6 +19,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
+        Paginator::useBootstrap();
+
         View::composer('*', function ($view) {
             if (auth()->check()) {
                 $userId = auth()->id();
