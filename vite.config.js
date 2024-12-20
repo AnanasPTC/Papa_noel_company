@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/sass/app.scss',
                 'resources/js/app.js',
                 'resources/css/message.css',
+                'resources/js/animation.js',
             ],
             refresh: true,
         }),
