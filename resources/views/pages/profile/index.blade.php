@@ -18,7 +18,7 @@
                         @endforeach
                     </ul>
                 </li>
-                <li>Photo : <img src="{{ $user->photo }}" alt="Photo de profil" class="img-fluid"></li>
+                <li>Photo : <img src="/storage/uploads/{{ $user->picture }}" alt="Photo de profil" class="img-fluid"></li>
             </ul>
             @if (Auth::id() == $user->id)
                 <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-primary">Modifier mon profil</a>
