@@ -5,14 +5,6 @@
 @vite('resources/css/message.css')
 
 
-<!-- Animation de neige -->
-<div id="snowflakes">
-    <div class="snowflake">❄️</div>
-    <div class="snowflake">❄️</div>
-    <div class="snowflake">❄️</div>
-</div>
-
-
 <!-- Titre -->
 <h1 class="main-title">
     🎄 Bienvenue sur votre Messagerie de Noël 🎄
